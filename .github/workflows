@@ -1,0 +1,27 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.WORKFLOW_USERNAME }}
+          password: ${{ secrets.WORKFLOW_SECRET }}
+
+      - name: Build Docker image
+        run: docker build -t shaharrel1/my-node-project:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push shaharrel1/my-node-project:latest
