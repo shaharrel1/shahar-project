@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Encode Docker Hub password
         id: encode_password
         run: echo -n "${{ secrets.WORKFLOW_PASSWORD }}" | base64 -w 0
