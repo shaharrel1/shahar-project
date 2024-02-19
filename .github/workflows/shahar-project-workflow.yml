@@ -20,7 +20,7 @@ jobs:
           PASSWORD_BASE64: ${{ steps.encode_password.outputs.stdout }}
 
       - name: Print encoded password
-        run: echo "Encoded password: $PASSWORD_BASE64"
+        run: echo "$PASSWORD_BASE64"
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
