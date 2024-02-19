@@ -16,8 +16,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.WORKFLOW_USERNAME }}
-          password: ${{ secrets.WORKFLOW_SECRET }}
+          username: shaharrel1
+          password: Maishell190
 
       - name: Build Docker image
         run: docker build -t shaharrel1/my-node-project:latest .
