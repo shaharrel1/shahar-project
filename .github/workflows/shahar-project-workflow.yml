@@ -13,15 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: shaharrel1
-          password: Maishell190
+      - name: Configure SSH and Docker login
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          docker login -u shaharrel1 -p ${{ secrets.WORKFLOW_TOKEN }}
 
       - name: Build Docker image
         run: docker build -t shaharrel1/my-node-project:latest .
 
       - name: Push Docker image
-        run: |
-          docker push shaharrel1/my-node-project:latest
+        run: docker push shaharrel1/my-node-project:latest
