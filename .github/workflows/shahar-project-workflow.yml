@@ -13,23 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Encode Docker Hub password
-        id: encode_password
-        run: echo -n "${{ secrets.WORKFLOW_PASSWORD }}" | base64 -w 0
-        env:
-          PASSWORD_BASE64: ${{ steps.encode_password.outputs.stdout }}
-
-      - name: Print encoded password
-        run: echo $PASSWORD_BASE64
-
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.WORKFLOW_USERNAME }}
-          password: ${{ env.PASSWORD_BASE64 }}
+          username: shaharrel1
+          password: ${{ secrets.WORKFLOW_SECRET }}
 
       - name: Build Docker image
         run: docker build -t shaharrel1/my-node-project:latest .
 
       - name: Push Docker image
-        run: docker push shaharrel1/my-node-project:latest
+        run: |
+          docker push shaharrel1/my-node-project:latest
