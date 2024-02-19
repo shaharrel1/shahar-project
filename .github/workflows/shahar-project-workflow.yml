@@ -20,8 +20,8 @@ jobs:
           password: ${{ secrets.WORKFLOW_SECRET }}
 
       - name: Build Docker image
-        run: docker build -t shaharrel1/my-node-project:latest .
+        run: docker build -t shaharrel/my-node-project:latest .
 
       - name: Push Docker image
         run: |
-          docker push shaharrel1/my-node-project:latest
+          docker push shaharrel/my-node-project:latest
