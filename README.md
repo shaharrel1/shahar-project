@@ -29,7 +29,7 @@ This repository contains configurations and scripts for managing a MiniKube clus
     kubectl apply -f my-project-deployment.yaml
     kubectl apply -f my-project-service.yaml
     ```
-6. Install puppet and run Puppet script to manage the Kubernetes resources:
+6. Install puppet and run Puppet script to manage the Kubernetes resources: (please make sure to adjust the relevant paths in the script where the Note state so)
     ```
     puppet apply puppet-manifest.pp
     ```

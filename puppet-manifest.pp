@@ -1,5 +1,5 @@
 # Define the directory path variable
-$yaml_dir = "C:/Users/Tom/shahar-project/shahar-project"
+$yaml_dir = "path/to/shahar-project"      # Adjust the path to the project
 
 # Define a custom resource type to manage Kubernetes resources
 define kubernetes_resource($resource_type, $resource_name, $resource_content) {
@@ -69,7 +69,7 @@ exec { 'Rollout Restart Deployment':
 
 # Manage Prometheus configuration manually
 file { 'prometheus.yml':
-  path    => 'C:/prometheus-2.49.1.windows-amd64/prometheus.yml',
+  path    => 'path/to/prometheus.yml',          # Adjust the path to the prometheus.yml file
   content => "
 global:
   scrape_interval: 15s
