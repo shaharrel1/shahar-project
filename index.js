@@ -1,3 +1,4 @@
+const client = require('prom-client');
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
@@ -15,16 +16,14 @@ var lorem = new LoremIpsum({
   }
 });
 
+const register = new client.Registry();
+client.collectDefaultMetrics({register});
+
+app.get('/metrics', async (req, res) => {
+  res.setHeader('Content-Type', register.contentType);
+  res.send(await register.metrics());
+});
+
 app.get('/', (req, res) => res.send(lorem.generateParagraphs(7)))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
-const client = require('prom-client');
-
-// Create a Registry to register the metrics
-const register = new client.Registry();
-client.collectDefaultMetrics({register});
-app.get('/metrics', async (req, res) => {
-    res.setHeader('Content-Type', register.contentType);
-    res.send(await register.metrics());
-});
