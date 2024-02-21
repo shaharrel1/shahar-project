@@ -11,10 +11,13 @@ This repository contains configurations and scripts for managing a MiniKube clus
 5. **Puppet Configuration**: Puppet scripts for managing Kubernetes resources and ensuring the environment's consistency.
 
 ## Prerequisites
-- MiniKube installed on the local Windows PC.
+- MiniKube installed and running on the local Windows PC.
+    link to minikube documantation - https://minikube.sigs.k8s.io/docs/start/
 - `kubectl` configured to communicate with the MiniKube cluster.
-- Docker installed for building container images locally.
-- GitHub repository secrets configured for accessing the container registry.
+- Docker installed if you want to build container images locally.
+- GitHub repository secrets configured for accessing the container registry. (this repository has already configured secrets to the shahar-project dockerhub registry)
+- puppet installed 
+    link to instructions on how to install puppet on windows
 
 ## Setup Instructions
 1. Clone this repository to your local machine.
