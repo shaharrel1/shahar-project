@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shahar-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shahar-project
+  template:
+    metadata:
+      labels:
+        app: shahar-project
+    spec:
+      containers:
+      - name: shahar-project
+        image: docker.io/shaharrel/my-node-project:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000

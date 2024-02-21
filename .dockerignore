@@ -16,8 +16,5 @@
 Dockerfile
 **/.env.test.local
 */.tsbuildinfo
-deployment.yaml.j2
-inventory.ini
 my-project-deployment.yaml
 my-project-service.yaml
-update_deployment.yaml

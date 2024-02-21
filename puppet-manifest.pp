@@ -57,3 +57,8 @@ spec:
   type: NodePort
 ',
 }
+
+# Execute the kubectl apply command
+exec { 'Apply Kubernetes Deployment':
+  command     => "C:/minikube/minikube.exe kubectl rollout restart deployment shahar-project",
+}
