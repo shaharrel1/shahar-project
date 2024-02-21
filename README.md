@@ -39,10 +39,10 @@ This repository contains configurations and scripts for managing a MiniKube clus
     ```
 
 ## Monitoring
-    To monitor the deployment and service to ensure the application is running correctly i installed prometheus using helm - 
-    in the repository there is a prometheus.yml configuration file, I defined the targets that Prometheus should scrape for metrics. 
-    To use prometheus you need to run `path/to/prometheus.exe --config.file=path/to/prometheus.yml`
-    and then open your browser on - http://localhost:9090/
-    for the prometheus to work you need to:
-    -Adjust the IP address and port in the prometheus.yml file to the ip and port you get when running the command `minikube service shahar-project --url`
-    - Expose the metrics throuh /metrics in your repository. 
+To monitor the deployment and service to ensure the application is running correctly i installed prometheus using helm - 
+in the repository there is a prometheus.yml configuration file, I defined the targets that Prometheus should scrape for metrics. 
+To use prometheus you need to run `path/to/prometheus.exe --config.file=path/to/prometheus.yml`
+and then open your browser on - http://localhost:9090/
+for the prometheus to work you need to:
+-Adjust the IP address and port in the prometheus.yml file to the ip and port you get when running the command `minikube service shahar-project --url`
+- Expose the metrics throuh /metrics in your repository. 
